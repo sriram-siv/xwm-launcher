@@ -3,7 +3,13 @@ const init = () => {
   const unityInstance = window.UnityLoader.instantiate(
     'unityContainer',
     'Build/x-wing-webgl.json',
-    { onProgress: window.UnityProgress }
+    {
+      onProgress: (instance, progress) => {
+        if (progress >= 1) {
+          setTimeout(() => instance.SendMessage('Loader', 'clientIsWebGL'), 5000)
+        }
+      }
+    }
   )
 
   const getClipboard = event => {
