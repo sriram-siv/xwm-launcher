@@ -24,6 +24,9 @@ const init = () => {
     )
   })
 
+  setTimeout(() => {
+    window.alert('Load xws data from raithos.github.io or any other squad builder')
+  }, 1000)
 }
 
 window.addEventListener('DOMContentLoaded', init)
